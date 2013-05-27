@@ -3,7 +3,10 @@ package
 	import Loom2D.Display.Image;    
     import Loom2D.Display.Loom2DGame;
 	import Loom2D.Display.StageScaleMode;
-	import Loom2D.Display.MovieClip;    
+	import Loom2D.Display.MovieClip;
+	
+	import Loom2D.Events.Event;
+	    
     import Loom2D.Textures.Texture;
     
     import Loom2D.UI.TextureAtlasManager;
@@ -27,9 +30,11 @@ package
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_red_down.png"));
 			
 			var mc=new MovieClip(texvec,1);
-			group.injectInto(mc);
-			mc.play();
+			mc.addEventListener(Event.COMPLETE,function(e:Event) {
+				trace("last frame");
+			});
 			stage.addChild(mc);
+			mc.play();
         }
     }
 }

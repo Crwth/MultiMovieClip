@@ -1,8 +1,7 @@
 package {
 	import Loom2D.Display.MovieClip;
 	
-	public class MultiMovieClip extends MovieClip {
-	/*
+	public class MultiMovieClip extends MovieClip {	
 		var _direction:int=0;
 		public function get direction():int { return _direction; }
 		public function set direction(d:int):void { _direction=d; }
@@ -26,7 +25,5 @@ package {
 			}
 			else return "";
 		}
-		
-	*/	
 	}
 }

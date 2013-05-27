@@ -2,7 +2,7 @@ package Loom2D.Display
 {
     //import flash.errors.IllegalOperationError;
     //import flash.media.Sound;
-    public class Sound {
+    public class Sound { // TODO
     	public function play():void{}
     }
     
@@ -14,13 +14,10 @@ package Loom2D.Display
     }
     
     
-    //import starling.animation.IAnimatable;
 	import Loom2D.Display.Image;
     import Loom2D.Events.Event;
+    import Loom2D.Events.EnterFrameEvent;
     import Loom2D.Textures.Texture;
-    
-    import Loom.GameFramework.IAnimated;
-    import Loom.GameFramework.TimeManager;
     
     /** Dispatched whenever the movie has displayed its last frame. */
     //[Event(name="complete", type="starling.events.Event")]
@@ -46,7 +43,7 @@ package Loom2D.Display
      *  
      *  @see starling.textures.TextureAtlas
      */    
-    public class MovieClip extends Image implements IAnimated //IAnimatable
+    public class MovieClip extends Image 
     {
         private var mTextures:Vector.<Texture>;
         private var mSounds:Vector.<Sound>;
@@ -59,9 +56,6 @@ package Loom2D.Display
         private var mLoop:Boolean;
         private var mPlaying:Boolean;
         
-        [Inject]
-        public var timeManager:TimeManager;
-        
         /** Creates a movie clip from the provided textures and with the specified default framerate.
          *  The movie will have the size of the first frame. */  
         public function MovieClip(textures:Vector.<Texture>, fps:Number=12)
@@ -70,6 +64,11 @@ package Loom2D.Display
             {
                 super(textures[0]);
                 init(textures, fps);
+				this.addEventListener(EnterFrameEvent.ENTER_FRAME,
+				function(e:Event):void {
+					var efe=e as EnterFrameEvent;
+					advanceTime(efe.passedTime);
+				});        
             }
             else
             {
@@ -188,9 +187,6 @@ package Loom2D.Display
         /** Starts playback. Beware that the clip has to be added to a juggler, too! */
         public function play():void
         {
-            if (timeManager)
-              	timeManager.addAnimatedObject(this);
-        
             mPlaying = true;
         }
         
@@ -220,11 +216,6 @@ package Loom2D.Display
                 mStartTimes[i] = mStartTimes[int(i-1)] + mDurations[int(i-1)];
         }
         
-        // IAnimatable
-        
-        public function onFrame():void {
-        	advanceTime(1.0/60);
-        }
         public function run():void {
         	play();
         }
@@ -238,7 +229,7 @@ package Loom2D.Display
             var previousFrame:int = mCurrentFrame;
             var restTime:Number = 0.0;
             var breakAfterFrame:Boolean = false;
-            var hasCompleteListener:Boolean = false;//hasEventListener(Event.COMPLETE); 
+            var hasCompleteListener:Boolean = hasEventListener(Event.COMPLETE); 
             var dispatchCompleteEvent:Boolean = false;
             var totalTime:Number = this.totalTime;
 
@@ -290,7 +281,7 @@ package Loom2D.Display
                 texture = mTextures[mCurrentFrame];
             
             if (dispatchCompleteEvent)
-                ;//dispatchEventWith(Event.COMPLETE);
+                dispatchEventWith(Event.COMPLETE);
             
             if (mLoop && restTime > 0.0)
                 advanceTime(restTime);
@@ -366,5 +357,5 @@ package Loom2D.Display
             else
                 return false;
         }
-    }
+    }    
 }
