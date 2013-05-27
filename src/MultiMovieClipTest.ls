@@ -8,9 +8,13 @@ package
 	import Loom2D.Events.Event;
 	    
     import Loom2D.Textures.Texture;
+    import Loom2D.Textures.TextureAtlas;
     
-    import Loom2D.UI.TextureAtlasManager;
-    import Loom2D.UI.TextureAtlasSprite;
+    //import Loom2D.UI.TextureAtlasManager;
+    //import Loom2D.UI.TextureAtlasSprite;
+    
+    import System.XML.XMLNode;
+    
 
     public class MultiMovieClipTest extends Loom2DGame
     {
@@ -21,13 +25,18 @@ package
             // Comment out this line to turn off automatic scaling.
             stage.scaleMode = StageScaleMode.LETTERBOX;
 
-			TextureAtlasManager.register("polySprites", "assets/data/");
 			var texvec:Vector.<Texture> =[];
+/*
+			TextureAtlasManager.register("polySprites", "assets/data/");
 
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_blue_down.png"));
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_yellow_down.png"));
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_purple_down.png"));
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_red_down.png"));
+*/
+			var polyTex:Texture=Texture.fromAsset("assets/data/polySprites.png");
+			var polyXml:XMLNode;
+			TextureAtlas ta=new TextureAtlas(polyTex,polyXml);
 			
 			var mc=new MovieClip(texvec,1);
 			mc.addEventListener(Event.COMPLETE,function(e:Event) {
