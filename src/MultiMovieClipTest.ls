@@ -26,29 +26,17 @@ package
             stage.scaleMode = StageScaleMode.LETTERBOX;
 
 			var texvec:Vector.<Texture> =[];
-/*
-			TextureAtlasManager.register("polySprites", "assets/data/");
 
-			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_blue_down.png"));
-			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_yellow_down.png"));
-			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_purple_down.png"));
-			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_red_down.png"));
-*/
 			var polyTex:Texture=Texture.fromAsset("assets/data/polySprites.png");
 			var xmldoc:XMLDocument=new XMLDocument();
 			xmldoc.loadFile("assets/data/polySprites.xml");
 			var xmlroot:XMLElement=xmldoc.rootElement();
-			var polyXml:XMLNode=xmlroot.firstChild();
-			var ta:TextureAtlas=new TextureAtlas(polyTex,polyXml);
-			trace(ta);
+			var ta:TextureAtlas=new TextureAtlas(polyTex,xmlroot);
 			texvec=ta.getTextures("circle_");
-			trace(texvec.length);
-			var texnames=ta.getNames("circle");
-			trace(texnames.toString());
 			
-			var mc=new MovieClip(texvec,1);
+			var mc=new MovieClip(texvec,5);
 			mc.addEventListener(Event.COMPLETE,function(e:Event) {
-				trace("last frame");
+				//trace("last frame");
 			});
 			stage.addChild(mc);
 			mc.play();
