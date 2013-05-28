@@ -35,8 +35,16 @@ package
 			texvec.push(TextureAtlasManager.getTexture("polySprites","circle_red_down.png"));
 */
 			var polyTex:Texture=Texture.fromAsset("assets/data/polySprites.png");
-			var polyXml:XMLNode;
-			TextureAtlas ta=new TextureAtlas(polyTex,polyXml);
+			var xmldoc:XMLDocument=new XMLDocument();
+			xmldoc.loadFile("assets/data/polySprites.xml");
+			var xmlroot:XMLElement=xmldoc.rootElement();
+			var polyXml:XMLNode=xmlroot.firstChild();
+			var ta:TextureAtlas=new TextureAtlas(polyTex,polyXml);
+			trace(ta);
+			texvec=ta.getTextures("circle_");
+			trace(texvec.length);
+			var texnames=ta.getNames("circle");
+			trace(texnames.toString());
 			
 			var mc=new MovieClip(texvec,1);
 			mc.addEventListener(Event.COMPLETE,function(e:Event) {
