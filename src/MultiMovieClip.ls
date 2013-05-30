@@ -158,6 +158,9 @@ package {
         protected override function setTexture(t:Texture):void {
                 texture = t;
                 readjustSize();
+                pivotX=width/2;
+                pivotY=height;                
+                
         }
 	}
 }

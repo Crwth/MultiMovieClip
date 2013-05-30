@@ -33,15 +33,17 @@ package
 //				null,
 //				5);
 			var mmc=new MultiMovieClip(
-				"assets/data/ogreattack1",
+				"assets/data/ogrewalk",
 				"ogre",
-				["attack1","attack2"],
+				["walk"],
 				["d","dl","l","ul","u","ur","r","dr"],
-				5
+				12
 			);
 			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
 				//trace("last frame");
 			});
+			mmc.x=200;
+			mmc.y=150;
 			stage.addChild(mmc);
 			mmc.play();
 			stage.addEventListener(TouchEvent.TOUCH_DOWN,function(e:Event) {

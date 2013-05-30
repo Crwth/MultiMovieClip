@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:e8dbbf7100ca5bbac000bcd06488f21b$ -->
+<!-- $TexturePacker:SmartUpdate:18c206a3184263bdafde014ce384bfc5$ -->
 <TextureAtlas imagePath="ogreattack1.png">
-    <SubTexture name="ogre_attack1_d_0" x="2" y="536" width="85" height="100"/>
-    <SubTexture name="ogre_attack1_d_1" x="165" y="708" width="74" height="87"/>
-    <SubTexture name="ogre_attack1_d_2" x="73" y="931" width="55" height="86"/>
-    <SubTexture name="ogre_attack1_d_3" x="2" y="931" width="69" height="91"/>
-    <SubTexture name="ogre_attack1_dl_0" x="142" y="404" width="50" height="116"/>
-    <SubTexture name="ogre_attack1_dl_1" x="2" y="734" width="86" height="94"/>
-    <SubTexture name="ogre_attack1_dl_2" x="164" y="312" width="80" height="89"/>
-    <SubTexture name="ogre_attack1_dl_3" x="142" y="522" width="73" height="93"/>
-    <SubTexture name="ogre_attack1_dr_0" x="90" y="404" width="50" height="116"/>
-    <SubTexture name="ogre_attack1_dr_1" x="2" y="638" width="86" height="94"/>
-    <SubTexture name="ogre_attack1_dr_2" x="101" y="121" width="80" height="89"/>
-    <SubTexture name="ogre_attack1_dr_3" x="90" y="734" width="73" height="93"/>
-    <SubTexture name="ogre_attack1_l_0" x="2" y="210" width="75" height="117"/>
-    <SubTexture name="ogre_attack1_l_1" x="89" y="303" width="73" height="99"/>
-    <SubTexture name="ogre_attack1_l_2" x="143" y="617" width="83" height="89"/>
-    <SubTexture name="ogre_attack1_l_3" x="194" y="403" width="57" height="98"/>
-    <SubTexture name="ogre_attack1_r_0" x="101" y="2" width="75" height="117"/>
-    <SubTexture name="ogre_attack1_r_1" x="2" y="830" width="73" height="99"/>
-    <SubTexture name="ogre_attack1_r_2" x="79" y="212" width="83" height="89"/>
-    <SubTexture name="ogre_attack1_r_3" x="164" y="212" width="57" height="98"/>
-    <SubTexture name="ogre_attack1_u_0" x="2" y="329" width="85" height="102"/>
-    <SubTexture name="ogre_attack1_u_1" x="178" y="2" width="72" height="105"/>
-    <SubTexture name="ogre_attack1_u_2" x="142" y="829" width="52" height="93"/>
-    <SubTexture name="ogre_attack1_u_3" x="2" y="433" width="86" height="101"/>
-    <SubTexture name="ogre_attack1_ul_0" x="2" y="106" width="97" height="102"/>
-    <SubTexture name="ogre_attack1_ul_1" x="77" y="830" width="63" height="98"/>
-    <SubTexture name="ogre_attack1_ul_2" x="196" y="887" width="57" height="88"/>
-    <SubTexture name="ogre_attack1_ul_3" x="90" y="635" width="51" height="97"/>
-    <SubTexture name="ogre_attack1_ur_0" x="2" y="2" width="97" height="102"/>
-    <SubTexture name="ogre_attack1_ur_1" x="183" y="109" width="63" height="98"/>
-    <SubTexture name="ogre_attack1_ur_2" x="196" y="797" width="57" height="88"/>
-    <SubTexture name="ogre_attack1_ur_3" x="89" y="536" width="51" height="97"/>
+    <SubTexture name="ogre_attack1_d_0" x="338" y="109" width="110" height="100"/>
+    <SubTexture name="ogre_attack1_d_1" x="226" y="109" width="110" height="100"/>
+    <SubTexture name="ogre_attack1_d_2" x="114" y="109" width="110" height="100"/>
+    <SubTexture name="ogre_attack1_d_3" x="2" y="109" width="110" height="100"/>
+    <SubTexture name="ogre_attack1_dl_0" x="332" y="329" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dl_1" x="222" y="329" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dl_2" x="112" y="329" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dl_3" x="2" y="329" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dr_0" x="332" y="211" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dr_1" x="222" y="211" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dr_2" x="112" y="211" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_dr_3" x="2" y="211" width="108" height="116"/>
+    <SubTexture name="ogre_attack1_l_0" x="106" y="566" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_l_1" x="2" y="804" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_l_2" x="2" y="685" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_l_3" x="2" y="566" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_r_0" x="314" y="447" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_r_1" x="210" y="447" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_r_2" x="106" y="447" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_r_3" x="2" y="447" width="102" height="117"/>
+    <SubTexture name="ogre_attack1_u_0" x="341" y="2" width="111" height="105"/>
+    <SubTexture name="ogre_attack1_u_1" x="228" y="2" width="111" height="105"/>
+    <SubTexture name="ogre_attack1_u_2" x="115" y="2" width="111" height="105"/>
+    <SubTexture name="ogre_attack1_u_3" x="2" y="2" width="111" height="105"/>
+    <SubTexture name="ogre_attack1_ul_0" x="106" y="790" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ul_1" x="408" y="671" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ul_2" x="309" y="671" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ul_3" x="106" y="685" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ur_0" x="210" y="671" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ur_1" x="408" y="566" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ur_2" x="309" y="566" width="97" height="103"/>
+    <SubTexture name="ogre_attack1_ur_3" x="210" y="566" width="97" height="103"/>
 </TextureAtlas>
