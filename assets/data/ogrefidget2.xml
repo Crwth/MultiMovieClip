@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:5d614bcb5c964707b227f1fef0fc5a61$ -->
+<TextureAtlas imagePath="ogrefidget2.png">
+    <SubTexture name="ogre_fidget2_d_0" x="218" y="2" width="70" height="101" frameX="-1" frameY="-4" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_d_1" x="360" y="2" width="66" height="103" frameX="-1" frameY="-2" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_d_2" x="2" y="109" width="66" height="105" frameX="0" frameY="0" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_d_3" x="146" y="107" width="66" height="105" frameX="-1" frameY="0" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_d_4" x="146" y="2" width="70" height="103" frameX="-2" frameY="-2" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_dl_0" x="414" y="110" width="60" height="106" frameX="0" frameY="-2" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dl_1" x="190" y="316" width="58" height="108" frameX="-1" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dl_2" x="130" y="214" width="58" height="108" frameX="-4" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dl_3" x="2" y="216" width="58" height="108" frameX="-2" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dl_4" x="288" y="107" width="62" height="106" frameX="0" frameY="-2" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dr_0" x="276" y="215" width="60" height="106" frameX="-2" frameY="-2" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dr_1" x="70" y="214" width="58" height="108" frameX="-2" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dr_2" x="398" y="218" width="58" height="108" frameX="0" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dr_3" x="338" y="217" width="58" height="108" frameX="-2" frameY="0" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_dr_4" x="428" y="2" width="62" height="106" frameX="0" frameY="-2" frameWidth="62" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_l_0" x="176" y="426" width="47" height="109" frameX="0" frameY="0" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_l_1" x="51" y="536" width="47" height="107" frameX="0" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_l_2" x="458" y="327" width="49" height="107" frameX="-2" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_l_3" x="225" y="431" width="45" height="107" frameX="-2" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_l_4" x="100" y="541" width="43" height="109" frameX="-3" frameY="0" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_r_0" x="2" y="430" width="47" height="109" frameX="-4" frameY="0" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_r_1" x="116" y="432" width="47" height="107" frameX="-3" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_r_2" x="458" y="218" width="49" height="107" frameX="0" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_r_3" x="2" y="541" width="45" height="107" frameX="-3" frameY="-1" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_r_4" x="165" y="537" width="43" height="109" frameX="-4" frameY="0" frameWidth="51" frameHeight="109"/>
+    <SubTexture name="ogre_fidget2_u_0" x="74" y="2" width="70" height="105" frameX="0" frameY="0" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_u_1" x="70" y="109" width="66" height="103" frameX="-5" frameY="-1" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_u_2" x="218" y="105" width="68" height="99" frameX="-4" frameY="-6" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_u_3" x="290" y="2" width="68" height="103" frameX="-3" frameY="-1" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_u_4" x="2" y="2" width="70" height="105" frameX="0" frameY="0" frameWidth="72" frameHeight="105"/>
+    <SubTexture name="ogre_fidget2_ul_0" x="352" y="107" width="60" height="108" frameX="0" frameY="0" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ul_1" x="310" y="327" width="58" height="106" frameX="-5" frameY="-2" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ul_2" x="2" y="326" width="56" height="102" frameX="-10" frameY="-6" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ul_3" x="60" y="428" width="54" height="106" frameX="-9" frameY="-2" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ul_4" x="428" y="436" width="56" height="108" frameX="-4" frameY="0" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ur_0" x="214" y="206" width="60" height="108" frameX="-6" frameY="0" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ur_1" x="250" y="323" width="58" height="106" frameX="-3" frameY="-2" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ur_2" x="62" y="324" width="56" height="102" frameX="0" frameY="-6" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ur_3" x="120" y="324" width="54" height="106" frameX="-3" frameY="-2" frameWidth="66" frameHeight="108"/>
+    <SubTexture name="ogre_fidget2_ur_4" x="370" y="328" width="56" height="108" frameX="-6" frameY="0" frameWidth="66" frameHeight="108"/>
+</TextureAtlas>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:b50cb63a6984489091a1370d7798cc55$ -->
+<TextureAtlas imagePath="ogreidle.png">
+    <SubTexture name="ogre_idle_d_0" x="2" y="108" width="76" height="102"/>
+    <SubTexture name="ogre_idle_dl_0" x="80" y="110" width="65" height="106"/>
+    <SubTexture name="ogre_idle_dr_0" x="80" y="2" width="65" height="106"/>
+    <SubTexture name="ogre_idle_l_0" x="206" y="112" width="39" height="108"/>
+    <SubTexture name="ogre_idle_r_0" x="206" y="2" width="39" height="108"/>
+    <SubTexture name="ogre_idle_u_0" x="2" y="2" width="75" height="104"/>
+    <SubTexture name="ogre_idle_ul_0" x="147" y="111" width="57" height="107"/>
+    <SubTexture name="ogre_idle_ur_0" x="147" y="2" width="57" height="107"/>
+</TextureAtlas>

@@ -35,6 +35,7 @@ package {
 			else return "";
 		}		
 		public function get currentActionName():String { return getActionName(action); }
+		public function numActions():int { return _actionNames.length; }
 		
 		public function setActionByName(name:String):Boolean {
 			if (_actionNames) return false;
@@ -151,8 +152,12 @@ package {
 				
 			trace("prefix:"+prefix);
 			texvec=atlas.getTextures(prefix);
-			trace("texvec ("+texvec.length+"):"+texvec.toString());
-			init(texvec,fps);			
+			if (texvec.length!=0) {
+				trace("texvec ("+texvec.length+"):"+texvec.toString());
+				init(texvec,fps);
+			} else {
+				trace("No textures found matching '"+prefix+"'");
+			}		
 		}
 
         protected override function setTexture(t:Texture):void {

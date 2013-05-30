@@ -33,9 +33,16 @@ package
 //				null,
 //				5);
 			var mmc=new MultiMovieClip(
-				"assets/data/ogrewalk",
+				"assets/data/ogremulti",
 				"ogre",
-				["walk"],
+				["walk", "idle", "die1", "die2",
+"attack1", "attack2", "attack3",
+"attackbow", "attackcrossbow", "attackthrow",
+"gethit", "pillage", "stomp",
+"cast1", "cast2",
+"blockright", "blockleft",
+"fidget1", "fidget2",
+"fly", "land", "gethitinair"],
 				["d","dl","l","ul","u","ur","r","dr"],
 				12
 			);
@@ -47,8 +54,8 @@ package
 			stage.addChild(mmc);
 			mmc.play();
 			stage.addEventListener(TouchEvent.TOUCH_DOWN,function(e:Event) {
-				//if (mmc.action==0) mmc.action=1; else mmc.action=0;
-				mmc.direction=(mmc.direction+1)%8;
+				mmc.action=(mmc.action+1)%mmc.numActions();
+				//mmc.direction=(mmc.direction+1)%8;
 			});
         }
     }
