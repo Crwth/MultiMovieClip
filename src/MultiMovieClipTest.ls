@@ -6,6 +6,7 @@ package
 	import Loom2D.Display.MovieClip;
 	
 	import Loom2D.Events.Event;
+	import Loom2D.Events.TouchEvent;
 	    
     import Loom2D.Textures.Texture;
     import Loom2D.Textures.TextureAtlas;
@@ -24,22 +25,29 @@ package
 
             // Comment out this line to turn off automatic scaling.
             stage.scaleMode = StageScaleMode.LETTERBOX;
-
-			var texvec:Vector.<Texture> =[];
-
-			var polyTex:Texture=Texture.fromAsset("assets/data/polySprites.png");
-			var xmldoc:XMLDocument=new XMLDocument();
-			xmldoc.loadFile("assets/data/polySprites.xml");
-			var xmlroot:XMLElement=xmldoc.rootElement();
-			var ta:TextureAtlas=new TextureAtlas(polyTex,xmlroot);
-			texvec=ta.getTextures("circle_");
 			
-			var mc=new MovieClip(texvec,5);
-			mc.addEventListener(Event.COMPLETE,function(e:Event) {
+			//var mmc=new MultiMovieClip(
+//				"assets/data/polySprites",
+//				"circle",
+//				["blue","red","purple","yellow"],
+//				null,
+//				5);
+			var mmc=new MultiMovieClip(
+				"assets/data/ogreattack1",
+				"ogre",
+				["attack1","attack2"],
+				["d","dl","l","ul","u","ur","r","dr"],
+				5
+			);
+			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
 				//trace("last frame");
 			});
-			stage.addChild(mc);
-			mc.play();
+			stage.addChild(mmc);
+			mmc.play();
+			stage.addEventListener(TouchEvent.TOUCH_DOWN,function(e:Event) {
+				//if (mmc.action==0) mmc.action=1; else mmc.action=0;
+				mmc.direction=(mmc.direction+1)%8;
+			});
         }
     }
 }

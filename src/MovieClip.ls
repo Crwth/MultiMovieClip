@@ -77,7 +77,7 @@ package Loom2D.Display
             }
         }
         
-        private function init(textures:Vector.<Texture>, fps:Number):void
+        protected function init(textures:Vector.<Texture>, fps:Number):void
         {
             if (fps <= 0) trace("Invalid fps: "+fps);//throw new ArgumentError("Invalid fps: " + fps);
             var numFrames:int = textures.length;
@@ -278,14 +278,16 @@ package Loom2D.Display
             }
             
             if (mCurrentFrame != previousFrame)
-                texture = mTextures[mCurrentFrame];
-            
+            	setTexture(mTextures[mCurrentFrame]);
+            	
             if (dispatchCompleteEvent)
                 dispatchEventWith(Event.COMPLETE);
             
             if (mLoop && restTime > 0.0)
                 advanceTime(restTime);
         }
+        
+        protected function setTexture(t:Texture):void { texture = t; }
         
         /** Indicates if a (non-looping) movie has come to its end. */
         public function get isComplete():Boolean 
