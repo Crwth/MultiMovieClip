@@ -318,6 +318,7 @@ package Loom2D.Display
         public function get currentFrame():int { return mCurrentFrame; }
         public function set currentFrame(value:int):void
         {
+        	if (value>numFrames) value=numFrames-1; // Crwth
             mCurrentFrame = value;
             mCurrentTime = 0.0;
             

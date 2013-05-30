@@ -46,6 +46,7 @@ package
 				["d","dl","l","ul","u","ur","r","dr"],
 				12
 			);
+			mmc.setDefaultActionByName("idle");
 			mmc.setLoopingByName("walk",true);
 			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
 				//trace("last frame");
@@ -54,8 +55,10 @@ package
 			mmc.y=150;
 			stage.addChild(mmc);
 			mmc.play();
+			var a=0;
 			stage.addEventListener(TouchEvent.TOUCH_DOWN,function(e:Event) {
-				mmc.action=(mmc.action+1)%mmc.numActions();
+				a=(a+1)%mmc.numActions;
+				mmc.action=a;
 				//mmc.direction=(mmc.direction+1)%8;
 			});
         }

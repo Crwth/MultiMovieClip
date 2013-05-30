@@ -38,7 +38,7 @@ package {
 			else return "";
 		}		
 		public function get currentActionName():String { return getActionName(action); }
-		public function numActions():int { return _actionNames.length; }
+		public function get numActions():int { return _actionNames.length; }
 		
 		public function getActionByName(name:String):int {
 			var ret=-1;
@@ -50,8 +50,7 @@ package {
 				}
 			);			
 			return ret;			
-		}
-		
+		}		
 		public function setCurrentActionByName(name:String):Boolean {
 			if (_actionNames) return false;
 			
@@ -66,6 +65,14 @@ package {
 			);			
 			return ret;
 		}
+		var _defaultAction:int=0;
+		public function get defaultAction():int { return _defaultAction; }
+		public function set defaultAction(d:int):void { _defaultAction=d; }
+		public function setDefaultActionByName(name:String):void {
+			var a=getActionByName(name);
+			defaultAction=a;
+		}
+		
 		public var defaultLoop:Boolean=false;
 		var _loopflags:Vector.<Boolean> = [];
 		public function setLoopingFlags(flags:Vector.<Boolean>):void {
@@ -163,6 +170,11 @@ package {
 			onDirectionChanged+=function() { this.reset(); };
 			onObjectChanged+=function() { this.reset(); };
 		
+			addEventListener(Event.COMPLETE,function(e:Event) {
+				if (!loop && action!=defaultAction) action=defaultAction;
+			});
+			
+		
 			reset();	
 		}	
 
@@ -187,6 +199,9 @@ package {
 			if (texvec.length!=0) {
 				trace("texvec ("+texvec.length+"):"+texvec.toString());
 				init(texvec,fps);
+            	readjustSize();
+            	pivotX=width/2;
+            	pivotY=height;                
 				loop=currentLooping;
 				currentFrame=curFrame;
 			} else {
@@ -194,12 +209,14 @@ package {
 			}		
 		}
 
+/*
         protected override function setTexture(t:Texture):void {
-                texture = t;
-                readjustSize();
-                pivotX=width/2;
-                pivotY=height;                
-                
+        	trace("set texture:"+t.toString());
+            texture = t;
+            //readjustSize();
+            //pivotX=width/2;
+            //pivotY=height;                
         }
+        */
 	}
 }
