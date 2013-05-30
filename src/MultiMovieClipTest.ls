@@ -46,6 +46,7 @@ package
 				["d","dl","l","ul","u","ur","r","dr"],
 				12
 			);
+			mmc.setLoopingByName("walk",true);
 			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
 				//trace("last frame");
 			});

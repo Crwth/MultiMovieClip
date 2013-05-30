@@ -23,10 +23,13 @@ package {
 		public function setActionNames(names:Vector.<String>):void {
 			if (!names) return;
 			_actionNames=names.slice(0,names.length);
+			for (var i=0;i<names.length;i++)
+				setLooping(i,defaultLoop);
 		}
 		public function setActionName(act:int, name:String):void {
 			if (!_actionNames) _actionNames = [];
 			_actionNames[act]=name;
+			setLooping(act,defaultLoop);
 		}
 		public function getActionName(act:int):String {
 			if (act<_actionNames.length) {
@@ -37,7 +40,19 @@ package {
 		public function get currentActionName():String { return getActionName(action); }
 		public function numActions():int { return _actionNames.length; }
 		
-		public function setActionByName(name:String):Boolean {
+		public function getActionByName(name:String):int {
+			var ret=-1;
+			_actionNames.forEach(
+				function(v:Object,i:Number,a:Vector.<Object>) {
+					if (v as String == name) {
+						ret=i; 
+					}
+				}
+			);			
+			return ret;			
+		}
+		
+		public function setCurrentActionByName(name:String):Boolean {
 			if (_actionNames) return false;
 			
 			var ret=false;
@@ -51,6 +66,22 @@ package {
 			);			
 			return ret;
 		}
+		public var defaultLoop:Boolean=false;
+		var _loopflags:Vector.<Boolean> = [];
+		public function setLoopingFlags(flags:Vector.<Boolean>):void {
+			if (!flags) return;
+			_loopflags=flags.slice(0,flags.length);
+		}
+		public function getLooping(i:int):Boolean { return _loopflags[i]; }
+		public function setLooping(i:int,l:Boolean):void { _loopflags[i]=l; }
+		public function get currentLooping():Boolean { return getLooping(action); }
+		public function setLoopingByName(name:String,l:Boolean):Boolean {
+			var act=getActionByName(name);
+			if (act==-1) return false;
+			setLooping(act,l);
+			return true;
+		}
+		
 		
 		/* direction */	
 		var _direction:int=0;
@@ -137,6 +168,7 @@ package {
 
 		private function reset():void {
 			var prefix:String="";
+			var curFrame=currentFrame;
 			
 			trace("object:"+objname);
 			if (objname && objname!="")
@@ -155,6 +187,8 @@ package {
 			if (texvec.length!=0) {
 				trace("texvec ("+texvec.length+"):"+texvec.toString());
 				init(texvec,fps);
+				loop=currentLooping;
+				currentFrame=curFrame;
 			} else {
 				trace("No textures found matching '"+prefix+"'");
 			}		
