@@ -325,7 +325,7 @@ package Loom2D.Display
             for (var i:int=0; i<value; ++i)
                 mCurrentTime += getFrameDuration(i);
             
-            texture = mTextures[mCurrentFrame];
+            setTexture(mTextures[mCurrentFrame]);
             if (mSounds[mCurrentFrame]) mSounds[mCurrentFrame].play();
         }
         

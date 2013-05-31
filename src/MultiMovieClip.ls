@@ -178,6 +178,7 @@ package {
 			reset();	
 		}	
 
+		private var sizeNeedsAdjusting:Boolean=true;
 		private function reset():void {
 			var prefix:String="";
 			var curFrame=currentFrame;
@@ -199,9 +200,10 @@ package {
 			if (texvec.length!=0) {
 				trace("texvec ("+texvec.length+"):"+texvec.toString());
 				init(texvec,fps);
-            	readjustSize();
+            	//readjustSize();
+            	sizeNeedsAdjusting=true;
             	pivotX=width/2;
-            	pivotY=height;                
+            	pivotY=height/2;                
 				loop=currentLooping;
 				currentFrame=curFrame;
 			} else {
@@ -209,14 +211,17 @@ package {
 			}		
 		}
 
-/*
         protected override function setTexture(t:Texture):void {
         	trace("set texture:"+t.toString());
-            texture = t;
-            //readjustSize();
-            //pivotX=width/2;
-            //pivotY=height;                
+            texture = t;            
+            if (sizeNeedsAdjusting) { 
+            	readjustSize(); 
+            	sizeNeedsAdjusting=false; 
+                pivotX=width/2;
+	            pivotY=height/2;                
+            }
+            
         }
-        */
+       
 	}
 }
