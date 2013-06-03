@@ -13,134 +13,47 @@ package {
 	
 	public delegate MovieClipChange();
 	
+	public class AnimInfo {
+		public var reset:Boolean;
+		public var loop:Boolean;
+		
+		public function AnimInfo(r:Boolean=true, l:Boolean=false) {
+			reset=r;
+			loop=l;
+		}
+	}
+	
 	public class MultiMovieClip extends MovieClip {
-		/* action */		
-		var _action:int=0;
-		public function get action():int { return _action; }
-		public function set action(a:int):void { if (a!=_action && a<_actionNames.length) {_action=a; onActionChanged();} }
+	
+		/* AnimInfo */
+		var _animinfo:Dictionary.<String,AnimInfo> ={};		
+		public function setAnimInfos(ai:Dictionary.<String,AnimInfo>) { _animinfo=ai; }
+		public function setAnimInfo(a:String,ai:AnimInfo):void { _animinfo[a]=ai; }
+		public function getAnimInfo(a:String):AnimInfo { return _animinfo[a]; }
+		public function get currentAnimInfo():AnimInfo { return getAnimInfo(action); }
+		public function set currentAnimInfo(ai:AnimInfo):void { setAnimInfo(action,ai); }
+		public function get numActions():int { return _animinfo.length; }
 
-		var _actionNames:Vector.<String> =[];
-		public function setActionNames(names:Vector.<String>):void {
-			if (!names) return;
-			_actionNames=names.slice(0,names.length);
-			for (var i=0;i<names.length;i++)
-				setLooping(i,defaultLoop);
+		/* action */			
+		var _action:String;
+		public function get action():String { return _action; }
+		public function set action(a:String):void { 
+			if (a!=_action) {
+				_action=a; 
+				onActionChanged();
+			} 
 		}
-		public function setActionName(act:int, name:String):void {
-			if (!_actionNames) _actionNames = [];
-			_actionNames[act]=name;
-			setLooping(act,defaultLoop);
-		}
-		public function getActionName(act:int):String {
-			if (act<_actionNames.length) {
-				return _actionNames[act];
-			}
-			else return "";
-		}		
-		public function get currentActionName():String { return getActionName(action); }
-		public function get numActions():int { return _actionNames.length; }
-		
-		public function getActionByName(name:String):int {
-			var ret=-1;
-			_actionNames.forEach(
-				function(v:Object,i:Number,a:Vector.<Object>) {
-					if (v as String == name) {
-						ret=i; 
-					}
-				}
-			);			
-			return ret;			
-		}		
-		public function setCurrentActionByName(name:String):Boolean {
-			if (_actionNames) return false;
-			
-			var ret=false;
-			_actionNames.forEach(
-				function(v:Object,i:Number,a:Vector.<Object>) {
-					if (v as String == name) {
-						action=i;
-						ret=true; 
-					}
-				}
-			);			
-			return ret;
-		}
-		
-		/* Default action */
-		var _defaultAction:int=0;
-		public function get defaultAction():int { return _defaultAction; }
-		public function set defaultAction(d:int):void { _defaultAction=d; }
-		public function setDefaultActionByName(name:String):void {
-			if (name) {
-				var a=getActionByName(name);
-				defaultAction=a;
-			}
-		}
-		var _defaultFlags:Vector.<Boolean> =[];
-		public function setDefaultActionFlags(flags:Vector.<Boolean>) {
-			if (!flags) return; 
-			_defaultFlags=flags; 
-		}	
-		public function setDefaultActionFlag(a:int, f:Boolean):void { _defaultFlags[a]=f; }
-		public function getDefaultActionFlag(a:int):Boolean { return _defaultFlags[a]; }
-		public function get currentDefaultActionFlag():Boolean { return getDefaultActionFlag(action); }
-		public function setDefaultActionFlagByName(name:String, f:Boolean):void { _defaultFlags[getActionByName(name)]=f; }
-		public function getDefaultActionFlagByName(ame:String):Boolean { return _defaultFlags[getActionByName(name)]; }
-		
-		/* Looping */
-		public var defaultLoop:Boolean=false;
-		var _loopflags:Vector.<Boolean> = [];
-		public function setLoopingFlags(flags:Vector.<Boolean>):void {
-			if (!flags) return;
-			_loopflags=flags.slice(0,flags.length);
-		}
-		public function getLooping(i:int):Boolean { return _loopflags[i]; }
-		public function setLooping(i:int,l:Boolean):void { _loopflags[i]=l; }
-		public function get currentLooping():Boolean { return getLooping(action); }
-		public function setLoopingByName(name:String,l:Boolean):Boolean {
-			var act=getActionByName(name);
-			if (act==-1) return false;
-			setLooping(act,l);
-			return true;
-		}
+		var defaultAction:String;
+
 				
 		/* Direction */	
-		var _direction:int=0;
-		public function get direction():int { return _direction; }
-		public function set direction(d:int):void { if (d!=_direction && d<_directionNames.length) {_direction=d; onDirectionChanged(); }}
-		
-
-		var _directionNames:Vector.<String> =[];
-		public function setDirectionNames(names:Vector.<String>):void {
-			if (!names) return;
-			_directionNames=names.slice(0,names.length);
-		}
-		public function setDirectionName(dir:int, name:String):void {
-			if (!_directionNames) _directionNames = [];
-			_directionNames[dir]=name;
-		}
-		public function getDirectionName(dir:int):String {
-			if (dir<_directionNames.length) {
-				return _directionNames[dir];
+		var _direction:String;
+		public function get direction():String { return _direction; }
+		public function set direction(d:String):void { 
+			if (d!=_direction) {
+				_direction=d; 
+				onDirectionChanged(); 
 			}
-			else return "";
-		}		
-		public function get currentDirectionName():String { return getDirectionName(direction); }
-		public function get numDirections():int { return _directionNames.length; }
-
-		public function setDirectionByName(name:String):Boolean {
-			if (_directionNames) return false;
-			
-			var ret=false;
-			_directionNames.forEach(
-				function(v:Object,i:Number,a:Vector.<Object>) {
-					if (v as String == name) {
-						direction=i;
-						ret=true; 
-					}
-				}
-			);			
-			return ret;
 		}
 		
 		public var onDirectionChanged:MovieClipChange;
@@ -161,11 +74,10 @@ package {
 		public function MultiMovieClip(
 			prefix:String,
 			objectName:String,
-			actions:Vector.<String>,
-			loopingFlags:Vector.<Boolean>,
-			defaultAction:String,
-			defaultActionFlags:Vector.<Boolean>,
+			animinfo:Dictionary.<String,AnimInfo>,
+			startingAction:String,
 			directions:Vector.<String>,
+			startingDirection:String,
 			fps:int=12) 
 		{
 			var polyTex:Texture=Texture.fromAsset(prefix+".png");
@@ -176,24 +88,12 @@ package {
 
 			atlas=new TextureAtlas(polyTex,xmlroot);
 	
-			action=0;direction=0;objname=objectName;
-
-			setActionNames(actions);
+			setAnimInfos(animinfo);
+	
+			objname=objectName;
+			action=defaultAction=startingAction;
+			direction=startingDirection;
 			
-			if (!loopingFlags) loopingFlags=[];
-			while (loopingFlags.length<actions.length)
-				loopingFlags.push(false);
-			setLoopingFlags(loopingFlags);
-				
-			setDefaultActionByName(defaultAction);
-			
-			if (!defaultActionFlags) defaultActionFlags=[];
-			while (defaultActionFlags.length<actions.length)
-				defaultActionFlags.push(false);				
-			setDefaultActionFlags(defaultActionFlags);
-			setDirectionNames(directions);
-			trace("directions:"+_directionNames.length);
-
 //			this.fps=fps;
 			
 			onActionChanged+=function() { this.reset(false); };
@@ -201,10 +101,13 @@ package {
 			onObjectChanged+=function() { this.reset(); };
 		
 			addEventListener(Event.COMPLETE,function(e:Event) {
-				if (!loop && action!=getActionByName(defaultAction) && currentDefaultActionFlag) action=getActionByName(defaultAction);
+				if (!loop) {
+					
+				}
+				if (!loop && action!=defaultAction && currentAnimInfo.reset) 
+				action=defaultAction;
 			});
-			
-		
+					
 			reset();	
 		}	
 
@@ -218,19 +121,23 @@ package {
 			if (objname && objname!="")
 				prefix+=objname+"_";
 				
-			//trace("action:"+currentActionName);
-			if (currentActionName!="")
-				prefix+=currentActionName+"_";
+			//trace("action:"+action);
+			if (action)
+				prefix+=action+"_";
 				
-			//trace("dir:"+currentDirectionName);
-			if (currentDirectionName!="")
-				prefix+=currentDirectionName+"_";
+			//trace("dir:"+direction);
+			if (direction)
+				prefix+=direction+"_";
 				
-			//trace("prefix:"+prefix);
+			trace("prefix:"+prefix);
 			texvec=atlas.getTextures(prefix);
+			
 			if (texvec.length==1) { // hack for single-frame animation
-			 _texvec.push(_texvec[0]);
+				_texvec.push(_texvec[0]);
 			}
+			//var cai:AnimInfo=_animinfo[action];
+			//trace(cai.getTypeName());
+			//trace("CurrentAnimInfo: (reset="+cai.reset+", loop="+cai.loop+")");
 			if (texvec.length!=0) {
 				//trace("texvec ("+texvec.length+"):"+texvec.toString());
 				init(texvec,fps);
@@ -238,7 +145,7 @@ package {
             	sizeNeedsAdjusting=true;
             	pivotX=width/2;
             	pivotY=height/2;                
-				loop=currentLooping;
+				loop=currentAnimInfo.loop;				
 				if (keepFrame) currentFrame=curFrame;
 				//currentTime=curTime;
 			} else {

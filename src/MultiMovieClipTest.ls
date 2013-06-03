@@ -30,64 +30,66 @@ package
         {
             super.run();
 
-            // Comment out this line to turn off automatic scaling.
             stage.scaleMode = StageScaleMode.LETTERBOX;
 			
-			//var mmc=new MultiMovieClip(
-//				"assets/data/polySprites",
-//				"circle",
-//				["blue","red","purple","yellow"],
-//				null,
-//				5);
+			var animinfo:Dictionary.<String,AnimInfo> = {
+				"walk":new AnimInfo(true,true), 
+				"idle":new AnimInfo(false,false),
+				"die1":new AnimInfo(false,false),
+				"die2":new AnimInfo(false,false),
+				"attack1":new AnimInfo(true,false),
+				"attack2":new AnimInfo(true,false),
+				"attack3":new AnimInfo(true,false),
+				"attackbow":new AnimInfo(true,false),
+				"attackcrossbow":new AnimInfo(true,false),
+				"attackthrow":new AnimInfo(true,false),
+				"gethit":new AnimInfo(true,false),
+				"pillage":new AnimInfo(true,false),
+				"stomp":new AnimInfo(true,false),
+				"cast1":new AnimInfo(true,false),
+				"cast2":new AnimInfo(true,false),
+				"blockright":new AnimInfo(true,false),
+				"blockleft":new AnimInfo(true,false),
+				"fidget1":new AnimInfo(true,false),
+				"fidget2":new AnimInfo(true,false),
+				"fly":new AnimInfo(false,true),
+				"land":new AnimInfo(true,false),
+				"gethitinair":new AnimInfo(true,false),
+			};
+			
 			var mmc=new MultiMovieClip(
-				"assets/data/ogremulti",
-				"ogre",
-				["walk", "idle", "die1", "die2",
-				"attack1", "attack2", "attack3",
-				"attackbow", "attackcrossbow", "attackthrow",
-				"gethit", "pillage", "stomp",
-				"cast1", "cast2",
-				"blockright", "blockleft",
-				"fidget1", "fidget2",
-				"fly", "land", "gethitinair"],
-				[true],
-				"idle",
-				[true,false,false,false,true,true,true,true,true,true,true,true,true,
-				true,true,true,true,true,true,true,true,true],
-				["d","dl","l","ul","u","ur","r","dr"],				
-				12
+				//"assets/data/ogremulti", "ogre", animinfo, "idle",
+				"assets/data/ettinmulti","ettin",animinfo,"idle",
+				["d","dl","l","ul","u","ur","r","dr"], "d", 12
 			);
-			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
-				//trace("last frame");
-			});
+
 			mmc.x=stage.stageWidth/2;
 			mmc.y=stage.stageHeight/2;
-			mmc.direction=2;
-			stage.addChild(mmc);
-			
-			Loom2D.juggler.add(mmc);
 						
-			mmc.play();
-						
-			var movefunc=function(e:Event) {
+			stage.addEventListener(TouchEvent.TOUCH,function(e:Event) {
 				var te=e as TouchEvent;
 				var touches=te.getTouches(mmc);
 				var touch=touches[0];
 				if (touch) {
 					var loc=touch.getLocation(stage);
 					var direction=getDirectionFor(mmc,loc.x,loc.y);
-					mmc.direction=direction;
+					var directions:Vector.<String> =["d","dl","l","ul","u","ur","r","dr"];
+					mmc.direction=directions[direction];
 				}
-			};			
-			stage.addEventListener(TouchEvent.TOUCH,movefunc);
+			});
 			
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, function(e:Event) {
 				var ke=e as KeyboardEvent;
-				trace(ke.charCode+" "+ke.keyLocation);
+				//trace(ke.charCode+" "+ke.keyLocation);
 				
 				var c=ke.charCode-4;
-				mmc.action=c;				
+				var actions:Vector.<String> =["walk","idle","die1","die2","attack1","attack2","attack3",
+					"attackbow","attackcrossbow","attackthrow","gethit","pillage",
+					"stomp","cast1","cast2","blockright","blockleft","fidget1","fidget2",
+					"fly","land","gethitinair"];
+				mmc.action=actions[c];				
 			});
+
 			/*
 			var sizelabel=new BitmapFontLabel("assets/Curse-hd.fnt");
 			stage.addChild(sizelabel);
@@ -105,6 +107,9 @@ package
 			});
 			*/
 			
+			stage.addChild(mmc);						
+			Loom2D.juggler.add(mmc);						
+			mmc.play();
         }
         function getDirectionFor(obj:DisplayObject, x:int, y:int):int {
             	//Console.print("obj.x:"+obj.x+" obj.y:"+obj.y);
