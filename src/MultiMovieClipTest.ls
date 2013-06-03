@@ -43,18 +43,20 @@ package
 				"assets/data/ogremulti",
 				"ogre",
 				["walk", "idle", "die1", "die2",
-"attack1", "attack2", "attack3",
-"attackbow", "attackcrossbow", "attackthrow",
-"gethit", "pillage", "stomp",
-"cast1", "cast2",
-"blockright", "blockleft",
-"fidget1", "fidget2",
-"fly", "land", "gethitinair"],
-				["d","dl","l","ul","u","ur","r","dr"],
+				"attack1", "attack2", "attack3",
+				"attackbow", "attackcrossbow", "attackthrow",
+				"gethit", "pillage", "stomp",
+				"cast1", "cast2",
+				"blockright", "blockleft",
+				"fidget1", "fidget2",
+				"fly", "land", "gethitinair"],
+				[true],
+				"idle",
+				[true,false,false,false,true,true,true,true,true,true,true,true,true,
+				true,true,true,true,true,true,true,true,true],
+				["d","dl","l","ul","u","ur","r","dr"],				
 				12
 			);
-			mmc.setDefaultActionByName("idle");
-			mmc.setLoopingByName("walk",true);
 			mmc.addEventListener(Event.COMPLETE,function(e:Event) {
 				//trace("last frame");
 			});

@@ -65,14 +65,29 @@ package {
 			);			
 			return ret;
 		}
+		
+		/* Default action */
 		var _defaultAction:int=0;
 		public function get defaultAction():int { return _defaultAction; }
 		public function set defaultAction(d:int):void { _defaultAction=d; }
 		public function setDefaultActionByName(name:String):void {
-			var a=getActionByName(name);
-			defaultAction=a;
+			if (name) {
+				var a=getActionByName(name);
+				defaultAction=a;
+			}
 		}
+		var _defaultFlags:Vector.<Boolean> =[];
+		public function setDefaultActionFlags(flags:Vector.<Boolean>) {
+			if (!flags) return; 
+			_defaultFlags=flags; 
+		}	
+		public function setDefaultActionFlag(a:int, f:Boolean):void { _defaultFlags[a]=f; }
+		public function getDefaultActionFlag(a:int):Boolean { return _defaultFlags[a]; }
+		public function get currentDefaultActionFlag():Boolean { return getDefaultActionFlag(action); }
+		public function setDefaultActionFlagByName(name:String, f:Boolean):void { _defaultFlags[getActionByName(name)]=f; }
+		public function getDefaultActionFlagByName(ame:String):Boolean { return _defaultFlags[getActionByName(name)]; }
 		
+		/* Looping */
 		public var defaultLoop:Boolean=false;
 		var _loopflags:Vector.<Boolean> = [];
 		public function setLoopingFlags(flags:Vector.<Boolean>):void {
@@ -88,9 +103,8 @@ package {
 			setLooping(act,l);
 			return true;
 		}
-		
-		
-		/* direction */	
+				
+		/* Direction */	
 		var _direction:int=0;
 		public function get direction():int { return _direction; }
 		public function set direction(d:int):void { if (d!=_direction && d<_directionNames.length) {_direction=d; onDirectionChanged(); }}
@@ -148,6 +162,9 @@ package {
 			prefix:String,
 			objectName:String,
 			actions:Vector.<String>,
+			loopingFlags:Vector.<Boolean>,
+			defaultAction:String,
+			defaultActionFlags:Vector.<Boolean>,
 			directions:Vector.<String>,
 			fps:int=12) 
 		{
@@ -162,6 +179,18 @@ package {
 			action=0;direction=0;objname=objectName;
 
 			setActionNames(actions);
+			
+			if (!loopingFlags) loopingFlags=[];
+			while (loopingFlags.length<actions.length)
+				loopingFlags.push(false);
+			setLoopingFlags(loopingFlags);
+				
+			setDefaultActionByName(defaultAction);
+			
+			if (!defaultActionFlags) defaultActionFlags=[];
+			while (defaultActionFlags.length<actions.length)
+				defaultActionFlags.push(false);				
+			setDefaultActionFlags(defaultActionFlags);
 			setDirectionNames(directions);
 			trace("directions:"+_directionNames.length);
 
@@ -172,7 +201,7 @@ package {
 			onObjectChanged+=function() { this.reset(); };
 		
 			addEventListener(Event.COMPLETE,function(e:Event) {
-				if (!loop && action!=defaultAction) action=defaultAction;
+				if (!loop && action!=getActionByName(defaultAction) && currentDefaultActionFlag) action=getActionByName(defaultAction);
 			});
 			
 		

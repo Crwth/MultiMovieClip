@@ -1,25 +1,28 @@
+// =================================================================================================
+//
+//	Starling Framework
+//	Copyright 2011 Gamua OG. All Rights Reserved.
+//
+//	This program is free software. You can redistribute and/or modify it
+//	in accordance with the terms of the accompanying license agreement.
+//
+// =================================================================================================
+
+//package starling.display
 package Loom2D.Display
 {
+	public class Sound { // TODO
+		public function play():void{}
+	}
+
     //import flash.errors.IllegalOperationError;
     //import flash.media.Sound;
-    public class Sound { // TODO
-    	public function play():void{}
-    }
     
-    /* Appeared in 1.0.1892
-    public class ArgumentError {
-    	public function ArgumentError(e:String) {trace(e);}
-    }
-    public class IllegalOperationError {
-    	public function IllegalOperationError(e:String) {trace(e);}
-    }
-    */
-    
+    //import starling.animation.IAnimatable;
     import Loom2D.Animation.IAnimatable;
-    
-	import Loom2D.Display.Image;
+    //import starling.events.Event;
     import Loom2D.Events.Event;
-    import Loom2D.Events.EnterFrameEvent;
+    //import starling.textures.Texture;
     import Loom2D.Textures.Texture;
     
     /** Dispatched whenever the movie has displayed its last frame. */
@@ -59,8 +62,6 @@ package Loom2D.Display
         private var mLoop:Boolean;
         private var mPlaying:Boolean;
         
-        private var mTimerSet:Boolean=false;
-        
         /** Creates a movie clip from the provided textures and with the specified default framerate.
          *  The movie will have the size of the first frame. */  
         public function MovieClip(textures:Vector.<Texture>, fps:Number=12)
@@ -72,14 +73,14 @@ package Loom2D.Display
             }
             else
             {
-                //throw new ArgumentError("Empty texture array");
-                trace("Empty texture array");
+                throw new ArgumentError("Empty texture array");
             }
         }
         
+        //private function init(textures:Vector.<Texture>, fps:Number):void
         protected function init(textures:Vector.<Texture>, fps:Number):void
         {
-            if (fps <= 0) trace("Invalid fps: "+fps);//throw new ArgumentError("Invalid fps: " + fps);
+            if (fps <= 0) throw new ArgumentError("Invalid fps: " + fps);
             var numFrames:int = textures.length;
             
             mDefaultFrameDuration = 1.0 / fps;
@@ -112,7 +113,7 @@ package Loom2D.Display
         public function addFrameAt(frameID:int, texture:Texture, sound:Sound=null, 
                                    duration:Number=-1):void
         {
-            if (frameID < 0 || frameID > numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID > numFrames) throw new ArgumentError("Invalid frame id");
             if (duration < 0) duration = mDefaultFrameDuration;
             
             mTextures.splice(frameID, 0, texture);
@@ -128,8 +129,8 @@ package Loom2D.Display
         /** Removes the frame at a certain ID. The successors will move down. */
         public function removeFrameAt(frameID:int):void
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
-            if (numFrames == 1) trace("Movie clip must not be empty");//throw new IllegalOperationError("Movie clip must not be empty");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
+            if (numFrames == 1) throw new IllegalOperationError("Movie clip must not be empty");
             
             mTextures.splice(frameID, 1);
             mSounds.splice(frameID, 1);
@@ -141,21 +142,21 @@ package Loom2D.Display
         /** Returns the texture of a certain frame. */
         public function getFrameTexture(frameID:int):Texture
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             return mTextures[frameID];
         }
         
         /** Sets the texture of a certain frame. */
         public function setFrameTexture(frameID:int, texture:Texture):void
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             mTextures[frameID] = texture;
         }
         
         /** Returns the sound of a certain frame. */
         public function getFrameSound(frameID:int):Sound
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             return mSounds[frameID];
         }
         
@@ -163,21 +164,21 @@ package Loom2D.Display
          *  is displayed. */
         public function setFrameSound(frameID:int, sound:Sound):void
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             mSounds[frameID] = sound;
         }
         
         /** Returns the duration of a certain frame (in seconds). */
         public function getFrameDuration(frameID:int):Number
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             return mDurations[frameID];
         }
         
         /** Sets the duration of a certain frame (in seconds). */
         public function setFrameDuration(frameID:int, duration:Number):void
         {
-            if (frameID < 0 || frameID >= numFrames) trace("Invalid frame id");//throw new ArgumentError("Invalid frame id");
+            if (frameID < 0 || frameID >= numFrames) throw new ArgumentError("Invalid frame id");
             mDurations[frameID] = duration;
             updateStartTimes();
         }
@@ -216,9 +217,7 @@ package Loom2D.Display
                 mStartTimes[i] = mStartTimes[int(i-1)] + mDurations[int(i-1)];
         }
         
-        public function run():void {
-        	play();
-        }
+        // IAnimatable
         
         /** @inheritDoc */
         public function advanceTime(passedTime:Number):void
@@ -232,7 +231,7 @@ package Loom2D.Display
             var hasCompleteListener:Boolean = hasEventListener(Event.COMPLETE); 
             var dispatchCompleteEvent:Boolean = false;
             var totalTime:Number = this.totalTime;
-
+            
             if (mLoop && mCurrentTime >= totalTime)
             { 
                 mCurrentTime = 0.0; 
@@ -278,16 +277,14 @@ package Loom2D.Display
             }
             
             if (mCurrentFrame != previousFrame)
-            	setTexture(mTextures[mCurrentFrame]);
-            	
+                texture = mTextures[mCurrentFrame];
+            
             if (dispatchCompleteEvent)
                 dispatchEventWith(Event.COMPLETE);
             
             if (mLoop && restTime > 0.0)
                 advanceTime(restTime);
         }
-        
-        protected function setTexture(t:Texture):void { texture = t; }
         
         /** Indicates if a (non-looping) movie has come to its end. */
         public function get isComplete():Boolean 
@@ -306,7 +303,6 @@ package Loom2D.Display
         
         /** The time that has passed since the clip was started (each loop starts at zero). */
         public function get currentTime():Number { return mCurrentTime; }
-        public function set currentTime(t:Number):void { mCurrentTime=t; }
         
         /** The total number of frames. */
         public function get numFrames():int { return mTextures.length; }
@@ -319,14 +315,13 @@ package Loom2D.Display
         public function get currentFrame():int { return mCurrentFrame; }
         public function set currentFrame(value:int):void
         {
-        	if (value>numFrames) value=numFrames-1; // Crwth
             mCurrentFrame = value;
             mCurrentTime = 0.0;
             
             for (var i:int=0; i<value; ++i)
                 mCurrentTime += getFrameDuration(i);
             
-            setTexture(mTextures[mCurrentFrame]);
+            texture = mTextures[mCurrentFrame];
             if (mSounds[mCurrentFrame]) mSounds[mCurrentFrame].play();
         }
         
@@ -336,7 +331,7 @@ package Loom2D.Display
         public function get fps():Number { return 1.0 / mDefaultFrameDuration; }
         public function set fps(value:Number):void
         {
-            if (value <= 0) trace("Invalid fps:"+value);//throw new ArgumentError("Invalid fps: " + value);
+            if (value <= 0) throw new ArgumentError("Invalid fps: " + value);
             
             var newFrameDuration:Number = 1.0 / value;
             var acceleration:Number = newFrameDuration / mDefaultFrameDuration;
@@ -361,5 +356,5 @@ package Loom2D.Display
             else
                 return false;
         }
-    }    
+    }
 }
