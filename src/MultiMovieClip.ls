@@ -17,7 +17,7 @@ package {
 		/* action */		
 		var _action:int=0;
 		public function get action():int { return _action; }
-		public function set action(a:int):void { _action=a; onActionChanged(); }
+		public function set action(a:int):void { if (a!=_action && a<_actionNames.length) {_action=a; onActionChanged();} }
 
 		var _actionNames:Vector.<String> =[];
 		public function setActionNames(names:Vector.<String>):void {
@@ -38,7 +38,7 @@ package {
 			else return "";
 		}		
 		public function get currentActionName():String { return getActionName(action); }
-		public function numActions():int { return _actionNames.length; }
+		public function get numActions():int { return _actionNames.length; }
 		
 		public function getActionByName(name:String):int {
 			var ret=-1;
@@ -50,8 +50,7 @@ package {
 				}
 			);			
 			return ret;			
-		}
-		
+		}		
 		public function setCurrentActionByName(name:String):Boolean {
 			if (_actionNames) return false;
 			
@@ -66,6 +65,14 @@ package {
 			);			
 			return ret;
 		}
+		var _defaultAction:int=0;
+		public function get defaultAction():int { return _defaultAction; }
+		public function set defaultAction(d:int):void { _defaultAction=d; }
+		public function setDefaultActionByName(name:String):void {
+			var a=getActionByName(name);
+			defaultAction=a;
+		}
+		
 		public var defaultLoop:Boolean=false;
 		var _loopflags:Vector.<Boolean> = [];
 		public function setLoopingFlags(flags:Vector.<Boolean>):void {
@@ -86,7 +93,7 @@ package {
 		/* direction */	
 		var _direction:int=0;
 		public function get direction():int { return _direction; }
-		public function set direction(d:int):void { _direction=d; onDirectionChanged(); }
+		public function set direction(d:int):void { if (d!=_direction && d<_directionNames.length) {_direction=d; onDirectionChanged(); }}
 		
 
 		var _directionNames:Vector.<String> =[];
@@ -105,6 +112,7 @@ package {
 			else return "";
 		}		
 		public function get currentDirectionName():String { return getDirectionName(direction); }
+		public function get numDirections():int { return _directionNames.length; }
 
 		public function setDirectionByName(name:String):Boolean {
 			if (_directionNames) return false;
@@ -133,7 +141,7 @@ package {
 		
 		private var _objname:String;
 		public function get objname():String { return _objname; }
-		public function set objname(on:String):void { _objname=on; onObjectChanged(); } 
+		public function set objname(on:String):void { if (on!=_objname) {_objname=on; onObjectChanged(); }} 
 		
 		private var atlas:TextureAtlas;
 		public function MultiMovieClip(
@@ -159,47 +167,67 @@ package {
 
 //			this.fps=fps;
 			
-			onActionChanged+=function() { this.reset(); };
+			onActionChanged+=function() { this.reset(false); };
 			onDirectionChanged+=function() { this.reset(); };
 			onObjectChanged+=function() { this.reset(); };
+		
+			addEventListener(Event.COMPLETE,function(e:Event) {
+				if (!loop && action!=defaultAction) action=defaultAction;
+			});
+			
 		
 			reset();	
 		}	
 
-		private function reset():void {
+		private var sizeNeedsAdjusting:Boolean=true;
+		private function reset(keepFrame:Boolean=true):void {
 			var prefix:String="";
 			var curFrame=currentFrame;
+			var curTime=currentTime;
 			
-			trace("object:"+objname);
+			//trace("object:"+objname);
 			if (objname && objname!="")
 				prefix+=objname+"_";
 				
-			trace("action:"+currentActionName);
+			//trace("action:"+currentActionName);
 			if (currentActionName!="")
 				prefix+=currentActionName+"_";
 				
-			trace("dir:"+currentDirectionName);
+			//trace("dir:"+currentDirectionName);
 			if (currentDirectionName!="")
 				prefix+=currentDirectionName+"_";
 				
-			trace("prefix:"+prefix);
+			//trace("prefix:"+prefix);
 			texvec=atlas.getTextures(prefix);
+			if (texvec.length==1) { // hack for single-frame animation
+			 _texvec.push(_texvec[0]);
+			}
 			if (texvec.length!=0) {
-				trace("texvec ("+texvec.length+"):"+texvec.toString());
+				//trace("texvec ("+texvec.length+"):"+texvec.toString());
 				init(texvec,fps);
+            	//readjustSize();
+            	sizeNeedsAdjusting=true;
+            	pivotX=width/2;
+            	pivotY=height/2;                
 				loop=currentLooping;
-				currentFrame=curFrame;
+				if (keepFrame) currentFrame=curFrame;
+				//currentTime=curTime;
 			} else {
 				trace("No textures found matching '"+prefix+"'");
 			}		
 		}
 
         protected override function setTexture(t:Texture):void {
-                texture = t;
-                readjustSize();
+        	//trace("set texture:"+t.toString());
+            texture = t;            
+            if (sizeNeedsAdjusting) { 
+            	readjustSize(); 
+            	sizeNeedsAdjusting=false; 
                 pivotX=width/2;
-                pivotY=height;                
-                
+	            pivotY=height/2;                
+            }
+            
         }
+       
 	}
 }

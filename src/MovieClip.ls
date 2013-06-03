@@ -6,13 +6,16 @@ package Loom2D.Display
     	public function play():void{}
     }
     
+    /* Appeared in 1.0.1892
     public class ArgumentError {
     	public function ArgumentError(e:String) {trace(e);}
     }
     public class IllegalOperationError {
     	public function IllegalOperationError(e:String) {trace(e);}
     }
+    */
     
+    import Loom2D.Animation.IAnimatable;
     
 	import Loom2D.Display.Image;
     import Loom2D.Events.Event;
@@ -43,7 +46,7 @@ package Loom2D.Display
      *  
      *  @see starling.textures.TextureAtlas
      */    
-    public class MovieClip extends Image 
+    public class MovieClip extends Image implements IAnimatable
     {
         private var mTextures:Vector.<Texture>;
         private var mSounds:Vector.<Sound>;
@@ -56,6 +59,8 @@ package Loom2D.Display
         private var mLoop:Boolean;
         private var mPlaying:Boolean;
         
+        private var mTimerSet:Boolean=false;
+        
         /** Creates a movie clip from the provided textures and with the specified default framerate.
          *  The movie will have the size of the first frame. */  
         public function MovieClip(textures:Vector.<Texture>, fps:Number=12)
@@ -64,11 +69,6 @@ package Loom2D.Display
             {
                 super(textures[0]);
                 init(textures, fps);
-				this.addEventListener(EnterFrameEvent.ENTER_FRAME,
-				function(e:Event):void {
-					var efe=e as EnterFrameEvent;
-					advanceTime(efe.passedTime);
-				});        
             }
             else
             {
@@ -306,6 +306,7 @@ package Loom2D.Display
         
         /** The time that has passed since the clip was started (each loop starts at zero). */
         public function get currentTime():Number { return mCurrentTime; }
+        public function set currentTime(t:Number):void { mCurrentTime=t; }
         
         /** The total number of frames. */
         public function get numFrames():int { return mTextures.length; }
@@ -318,13 +319,14 @@ package Loom2D.Display
         public function get currentFrame():int { return mCurrentFrame; }
         public function set currentFrame(value:int):void
         {
+        	if (value>numFrames) value=numFrames-1; // Crwth
             mCurrentFrame = value;
             mCurrentTime = 0.0;
             
             for (var i:int=0; i<value; ++i)
                 mCurrentTime += getFrameDuration(i);
             
-            texture = mTextures[mCurrentFrame];
+            setTexture(mTextures[mCurrentFrame]);
             if (mSounds[mCurrentFrame]) mSounds[mCurrentFrame].play();
         }
         
