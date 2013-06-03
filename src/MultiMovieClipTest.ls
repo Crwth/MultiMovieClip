@@ -1,6 +1,10 @@
 package
 {
-	import Loom2D.Display.BitmapFontLabel;
+	import Loom2D.Loom2D;
+	import Loom2D.Animation.Juggler;
+
+	//import Loom2D.Display.BitmapFontLabel; // Gone after 1.0.1892
+	import Loom2D.Display.DisplayObject;
 	import Loom2D.Display.Image;    
     import Loom2D.Display.Loom2DGame;
 	import Loom2D.Display.StageScaleMode;
@@ -8,6 +12,7 @@ package
 	
 	import Loom2D.Events.EnterFrameEvent;
 	import Loom2D.Events.Event;
+	import Loom2D.Events.KeyboardEvent;
 	import Loom2D.Events.TouchEvent;
 	    
     import Loom2D.Textures.Texture;
@@ -55,19 +60,38 @@ package
 			});
 			mmc.x=stage.stageWidth/2;
 			mmc.y=stage.stageHeight/2;
+			mmc.direction=2;
 			stage.addChild(mmc);
+			
+			Loom2D.juggler.add(mmc);
+						
 			mmc.play();
-			var a=0;
-			stage.addEventListener(TouchEvent.TOUCH_DOWN,function(e:Event) {
-				a=(a+1)%mmc.numActions;
-				mmc.action=a;
-				//mmc.direction=(mmc.direction+1)%8;
+						
+			var movefunc=function(e:Event) {
+				var te=e as TouchEvent;
+				var touches=te.getTouches(mmc);
+				var touch=touches[0];
+				if (touch) {
+					var loc=touch.getLocation(stage);
+					var direction=getDirectionFor(mmc,loc.x,loc.y);
+					mmc.direction=direction;
+				}
+			};			
+			stage.addEventListener(TouchEvent.TOUCH,movefunc);
+			
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, function(e:Event) {
+				var ke=e as KeyboardEvent;
+				trace(ke.charCode+" "+ke.keyLocation);
+				
+				var c=ke.charCode-4;
+				mmc.action=c;				
 			});
 			/*
 			var sizelabel=new BitmapFontLabel("assets/Curse-hd.fnt");
 			stage.addChild(sizelabel);
 			*/
 			
+			/*
 			var actionlabel=new BitmapFontLabel("assets/Curse-hd.fnt");
 			stage.addChild(actionlabel);
 			
@@ -77,7 +101,25 @@ package
 				actionlabel.x=(stage.stageWidth-actionlabel.bounds.width)/2;
 				actionlabel.y=stage.stageHeight-actionlabel.bounds.height/2;
 			});
+			*/
 			
+        }
+        function getDirectionFor(obj:DisplayObject, x:int, y:int):int {
+            	//Console.print("obj.x:"+obj.x+" obj.y:"+obj.y);
+            	//Console.print("touch.x:"+x+" touch.y:"+y);
+            	var x2=x-obj.x;
+            	var y2=obj.y-y;
+            	var rad=Math.atan2(y2,x2);
+            	//Console.print("atan2:"+rad);
+            	var deg=(rad*(180/Math.PI)+360)%360;
+            	var dir=degToDirection(deg);
+            	//Console.print("deg:"+deg+" dir:"+dir);
+            	return dir;
+        }
+        
+        function degToDirection(deg:int):int {
+        	var rotdeg=((360-deg)+(360-67.5))%360;
+        	return Math.floor(rotdeg/45);
         }
     }
 }
