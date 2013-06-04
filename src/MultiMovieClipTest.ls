@@ -109,6 +109,7 @@ package
 			
 			stage.addChild(mmc);						
 			Loom2D.juggler.add(mmc);						
+			mmc.stop();
 			mmc.play();
         }
         function getDirectionFor(obj:DisplayObject, x:int, y:int):int {

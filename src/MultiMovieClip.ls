@@ -109,6 +109,7 @@ package {
 			});
 					
 			reset();	
+			reset(); // hack for initial sprite display (fps?)
 		}	
 
 		private var sizeNeedsAdjusting:Boolean=true;
