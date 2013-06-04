@@ -68,8 +68,12 @@ package Loom2D.Display
         {
             if (textures.length > 0)
             {
+	            trace("A");
+	            trace(textures[0].toString());
                 super(textures[0]);
+	            trace("B");
                 init(textures, fps);
+	            trace("C");
             }
             else
             {

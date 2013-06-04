@@ -70,9 +70,9 @@ package {
 		public function get objname():String { return _objname; }
 		public function set objname(on:String):void { if (on!=_objname) {_objname=on; onObjectChanged(); }} 
 		
-		private var atlas:TextureAtlas;
+		private var atlasses:Vector.<TextureAtlas> = [];
 		public function MultiMovieClip(
-			prefix:String,
+			prefixes:Vector.<String>,
 			objectName:String,
 			animinfo:Dictionary.<String,AnimInfo>,
 			startingAction:String,
@@ -80,14 +80,22 @@ package {
 			startingDirection:String,
 			fps:int=12) 
 		{
-			var polyTex:Texture=Texture.fromAsset(prefix+".png");
-			super([polyTex],fps);
-			var xmldoc:XMLDocument=new XMLDocument();
-			xmldoc.loadFile(prefix+".xml");
-			var xmlroot:XMLElement=xmldoc.rootElement();
-
-			atlas=new TextureAtlas(polyTex,xmlroot);
+			trace("prefixes.length:"+prefixes.length);
+			var first:Texture;
+			prefixes.forEach(function(p:Object) {
+				var prefix=p as String;
+				trace("Loading "+prefix);
+				var polyTex:Texture=Texture.fromAsset(prefix+".png");
+				if (!first) first=polyTex;
+				var xmldoc:XMLDocument=new XMLDocument();
+				xmldoc.loadFile(prefix+".xml");
+				var xmlroot:XMLElement=xmldoc.rootElement();
 	
+				atlasses.push(new TextureAtlas(polyTex,xmlroot));
+			});
+			trace("atlasses.length:"+atlasses.length);
+			super([first],fps);
+			trace("initialized.");
 			setAnimInfos(animinfo);
 	
 			objname=objectName;
@@ -131,7 +139,7 @@ package {
 				prefix+=direction+"_";
 				
 			trace("prefix:"+prefix);
-			texvec=atlas.getTextures(prefix);
+			texvec=findTextures(prefix);
 			
 			if (texvec.length==1) { // hack for single-frame animation
 				_texvec.push(_texvec[0]);
@@ -152,6 +160,24 @@ package {
 			} else {
 				trace("No textures found matching '"+prefix+"'");
 			}		
+		}
+
+		function findTextures(prefix:String):Vector.<Texture> {
+			var ret:Vector.<Texture> = [];
+			trace("looking for "+prefix);
+			atlasses.forEach(function(ta:Object) {
+				var atlas=ta as TextureAtlas;
+				var texes=atlas.getTextures(prefix);
+				if (texes) { 
+					trace("found "+texes.length+" matches");
+					texes.forEach(function(o:Object) {
+						var t=o as Texture;
+						ret.push(t);
+					});
+				}
+			});
+			trace("ret.length:"+ret.length);
+			return ret;
 		}
 
         protected override function setTexture(t:Texture):void {
