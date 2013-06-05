@@ -59,7 +59,7 @@ package
 			
 			var mmc=new MultiMovieClip(
 				//"assets/data/ogremulti", "ogre", animinfo, "idle",
-				["assets/data/ettinmulti"],"ettin",animinfo,"idle",
+				["assets/data/ettin0","assets/data/ettin1"],"ettin",animinfo,"idle",
 				["d","dl","l","ul","u","ur","r","dr"], "d", 12
 			);
 
