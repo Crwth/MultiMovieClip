@@ -17,9 +17,8 @@ package
 	    
     import Loom2D.Textures.Texture;
     import Loom2D.Textures.TextureAtlas;
-    
-    //import Loom2D.UI.TextureAtlasManager;
-    //import Loom2D.UI.TextureAtlasSprite;
+
+	import Loom2D.UI.Label;    
     
     import System.XML.XMLNode;
     
@@ -59,13 +58,15 @@ package
 			
 			var mmc=new MultiMovieClip(
 				//"assets/data/ogremulti", "ogre", animinfo, "idle",
-				["assets/data/ettin0","assets/data/ettin1"],"ettin",animinfo,"idle",
+				//["assets/data/ettin0","assets/data/ettin1"],"ettin",animinfo,"idle",
+				["assets/data/zombie0","assets/data/zombie1","assets/data/zombie2"],"zombie",animinfo,"idle",
 				["d","dl","l","ul","u","ur","r","dr"], "d", 12
 			);
 
 			mmc.x=stage.stageWidth/2;
 			mmc.y=stage.stageHeight/2;
 						
+			//stage.reportFps=true;						
 			stage.addEventListener(TouchEvent.TOUCH,function(e:Event) {
 				var te=e as TouchEvent;
 				var touches=te.getTouches(mmc);
@@ -95,17 +96,17 @@ package
 			stage.addChild(sizelabel);
 			*/
 			
-			/*
-			var actionlabel=new BitmapFontLabel("assets/Curse-hd.fnt");
+			
+			var actionlabel=new Label("assets/Curse-hd.fnt");
 			stage.addChild(actionlabel);
 			
 			stage.addEventListener(EnterFrameEvent.ENTER_FRAME, function(e:Event):void {
 				//sizelabel.text=""+mmc.width+","+mmc.height;
-				actionlabel.text=""+mmc.currentActionName+"-"+mmc.currentDirectionName;
-				actionlabel.x=(stage.stageWidth-actionlabel.bounds.width)/2;
-				actionlabel.y=stage.stageHeight-actionlabel.bounds.height/2;
+				actionlabel.text=""+mmc.action+"-"+mmc.direction;
+				actionlabel.x=stage.stageWidth/2;
+				actionlabel.y=stage.stageHeight/2;
 			});
-			*/
+			
 			
 			stage.addChild(mmc);						
 			Loom2D.juggler.add(mmc);						

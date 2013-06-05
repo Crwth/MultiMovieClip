@@ -159,6 +159,7 @@ package {
 				//currentTime=curTime;
 			} else {
 				trace("No textures found matching '"+prefix+"'");
+				action=defaultAction;
 			}		
 		}
 
