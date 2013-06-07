@@ -16,10 +16,12 @@ package {
 	public class AnimInfo {
 		public var reset:Boolean;
 		public var loop:Boolean;
+		public var defaction:String=null;
 		
-		public function AnimInfo(r:Boolean=true, l:Boolean=false) {
+		public function AnimInfo(r:Boolean=true, l:Boolean=false, d:String=null) {
 			reset=r;
 			loop=l;
+			defaction=d;
 		}
 	}
 	
@@ -44,7 +46,10 @@ package {
 			} 
 		}
 		var defaultAction:String;
-
+		public function get currentDefaultAction():String {
+			var caidef=currentAnimInfo.defaction;
+			if (caidef) return caidef; else return defaultAction;
+		}
 				
 		/* Direction */	
 		var _direction:String;
@@ -109,11 +114,8 @@ package {
 			onObjectChanged+=function() { this.reset(); };
 		
 			addEventListener(Event.COMPLETE,function(e:Event) {
-				if (!loop) {
-					
-				}
-				if (!loop && action!=defaultAction && currentAnimInfo.reset) 
-				action=defaultAction;
+				if (!loop && action!=currentDefaultAction && currentAnimInfo.reset) 
+				action=currentDefaultAction;
 			});
 					
 			reset();	
@@ -163,6 +165,10 @@ package {
 			}		
 		}
 
+		public function hasTextures(prefix:String):int {
+			return findTextures(prefix).length;
+		}
+		
 		function findTextures(prefix:String):Vector.<Texture> {
 			var ret:Vector.<Texture> = [];
 			trace("looking for "+prefix);
@@ -170,7 +176,7 @@ package {
 				var atlas=ta as TextureAtlas;
 				var texes=atlas.getTextures(prefix);
 				if (texes) { 
-					trace("found "+texes.length+" matches");
+					//trace("found "+texes.length+" matches");
 					texes.forEach(function(o:Object) {
 						var t=o as Texture;
 						ret.push(t);

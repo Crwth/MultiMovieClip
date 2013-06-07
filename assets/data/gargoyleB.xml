@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:0533f197d96f1df02bd592c3d9dfaf06$ -->
+<TextureAtlas imagePath="gargoyleB.png">
+    <SubTexture name="gargoyle_gethitinair_d_6" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_0" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_1" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_2" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_3" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_4" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_5" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dl_6" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_0" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_1" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_2" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_3" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_4" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_5" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_dr_6" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_0" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_1" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_2" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_3" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_4" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_5" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_l_6" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_0" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_1" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_2" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_3" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_4" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_5" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_r_6" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_0" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_1" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_2" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_3" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_4" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_5" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_u_6" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_0" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_1" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_2" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_3" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_4" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_ul_5" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>

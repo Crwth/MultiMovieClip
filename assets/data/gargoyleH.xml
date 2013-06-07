@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:18f0a414e868a22562bb7fd760933581$ -->
+<TextureAtlas imagePath="gargoyleH.png">
+    <SubTexture name="gargoyle_walk_ur_4" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_ur_5" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_ur_6" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_ur_7" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_ur_8" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_ur_9" x="552" y="331" width="273" height="327"/>
+</TextureAtlas>

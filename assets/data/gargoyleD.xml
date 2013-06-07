@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:a6949af621b1b65ce0946f34a403b2b1$ -->
+<TextureAtlas imagePath="gargoyleD.png">
+    <SubTexture name="gargoyle_pillage_d_2" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_d_3" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_d_4" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dl_0" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dl_1" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dl_2" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dl_3" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dl_4" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dr_0" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dr_1" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dr_2" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dr_3" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_dr_4" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_l_0" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_l_1" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_l_2" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_l_3" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_l_4" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_r_0" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_r_1" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_r_2" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_r_3" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_r_4" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_u_0" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_u_1" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_u_2" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_u_3" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_u_4" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ul_0" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ul_1" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ul_2" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ul_3" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ul_4" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ur_0" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ur_1" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ur_2" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ur_3" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_pillage_ur_4" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_d_0" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_d_1" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_d_2" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_d_3" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:ecd20d2641f9921909b8e93aad92f770$ -->
+<TextureAtlas imagePath="gargoyle2.png">
+    <SubTexture name="gargoyle_attack3_u_0" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_u_1" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_u_2" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_u_3" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ul_0" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ul_1" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ul_2" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ul_3" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ur_0" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ur_1" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ur_2" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_attack3_ur_3" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_d_0" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_d_1" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_d_2" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dl_0" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dl_1" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dl_2" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dr_0" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dr_1" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_dr_2" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_l_0" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_l_1" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_l_2" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_r_0" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_r_1" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_r_2" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_u_0" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_u_1" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_u_2" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ul_0" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ul_1" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ul_2" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ur_0" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ur_1" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockleft_ur_2" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_d_0" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_d_1" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_d_2" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_dl_0" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_dl_1" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_blockright_dl_2" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>

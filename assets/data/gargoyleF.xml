@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:021c9ac359a8beef04639b1969de0bd3$ -->
+<TextureAtlas imagePath="gargoyleF.png">
+    <SubTexture name="gargoyle_stomp_ul_4" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ul_5" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ul_6" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_0" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_1" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_2" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_3" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_4" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_5" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_stomp_ur_6" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_0" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_1" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_2" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_3" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_4" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_5" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_6" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_7" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_8" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_d_9" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_0" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_1" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_2" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_3" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_4" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_5" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_6" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_7" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_8" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dl_9" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_0" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_1" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_2" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_3" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_4" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_5" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_6" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_7" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_8" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_dr_9" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_l_0" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_walk_l_1" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>

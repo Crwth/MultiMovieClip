@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:7169f7ef4d6343ef10d36b40f3596624$ -->
+<TextureAtlas imagePath="gargoyle6.png">
+    <SubTexture name="gargoyle_die2_u_0" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_u_1" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_u_2" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_u_3" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ul_0" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ul_1" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ul_2" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ul_3" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ur_0" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ur_1" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ur_2" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_die2_ur_3" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_d_0" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_d_1" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_d_2" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_d_3" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_d_4" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dl_0" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dl_1" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dl_2" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dl_3" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dl_4" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dr_0" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dr_1" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dr_2" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dr_3" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_dr_4" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_l_0" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_l_1" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_l_2" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_l_3" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_l_4" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_r_0" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_r_1" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_r_2" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_r_3" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_r_4" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_u_0" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_u_1" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_u_2" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_u_3" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_fidget1_u_4" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>

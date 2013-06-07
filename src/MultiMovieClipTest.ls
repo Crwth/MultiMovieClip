@@ -53,13 +53,33 @@ package
 				"fidget2":new AnimInfo(true,false),
 				"fly":new AnimInfo(false,true),
 				"land":new AnimInfo(true,false),
-				"gethitinair":new AnimInfo(true,false),
+				"gethitinair":new AnimInfo(true,false,"fly"),
 			};
 			
 			var mmc=new MultiMovieClip(
 				//"assets/data/ogremulti", "ogre", animinfo, "idle",
 				//["assets/data/ettin0","assets/data/ettin1"],"ettin",animinfo,"idle",
-				["assets/data/zombie0","assets/data/zombie1","assets/data/zombie2"],"zombie",animinfo,"idle",
+				//["assets/data/zombie0","assets/data/zombie1","assets/data/zombie2"],"zombie",animinfo,"idle",
+				[
+				"assets/data/gargoyle0",
+				"assets/data/gargoyle1",
+				"assets/data/gargoyle2",
+				"assets/data/gargoyle3",
+				"assets/data/gargoyle4",
+				"assets/data/gargoyle5",
+				"assets/data/gargoyle6",
+				"assets/data/gargoyle7",
+				"assets/data/gargoyle8",
+				"assets/data/gargoyle9",
+				"assets/data/gargoyleA",
+				"assets/data/gargoyleB",
+				"assets/data/gargoyleC",
+				"assets/data/gargoyleD",
+				"assets/data/gargoyleE",
+				"assets/data/gargoyleF",
+				"assets/data/gargoyleG",
+				"assets/data/gargoyleH"],"gargoyle",animinfo,"idle",
+				
 				["d","dl","l","ul","u","ur","r","dr"], "d", 12
 			);
 
@@ -88,7 +108,10 @@ package
 					"attackbow","attackcrossbow","attackthrow","gethit","pillage",
 					"stomp","cast1","cast2","blockright","blockleft","fidget1","fidget2",
 					"fly","land","gethitinair"];
-				mmc.action=actions[c];				
+					
+				var action=actions[c];
+				if (mmc.hasTextures(mmc.objname+"_"+action))
+					mmc.action=action;				
 			});
 
 			/*

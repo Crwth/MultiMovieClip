@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:ea1b23e5f1a858fa4b24a2a1f64e4866$ -->
+<TextureAtlas imagePath="gargoyleA.png">
+    <SubTexture name="gargoyle_fly_ur_6" x="2" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_fly_ur_7" x="277" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_fly_ur_8" x="552" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_fly_ur_9" x="827" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_d_0" x="1102" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_d_1" x="1377" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_d_2" x="1652" y="2" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_d_3" x="2" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dl_0" x="277" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dl_1" x="552" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dl_2" x="827" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dl_3" x="1102" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dr_0" x="1377" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dr_1" x="1652" y="331" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dr_2" x="2" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_dr_3" x="277" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_l_0" x="552" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_l_1" x="827" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_l_2" x="1102" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_l_3" x="1377" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_r_0" x="1652" y="660" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_r_1" x="2" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_r_2" x="277" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_r_3" x="552" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_u_0" x="827" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_u_1" x="1102" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_u_2" x="1377" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_u_3" x="1652" y="989" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ul_0" x="2" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ul_1" x="277" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ul_2" x="552" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ul_3" x="827" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ur_0" x="1102" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ur_1" x="1377" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ur_2" x="1652" y="1318" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethit_ur_3" x="2" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_0" x="277" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_1" x="552" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_2" x="827" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_3" x="1102" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_4" x="1377" y="1647" width="273" height="327"/>
+    <SubTexture name="gargoyle_gethitinair_d_5" x="1652" y="1647" width="273" height="327"/>
+</TextureAtlas>
