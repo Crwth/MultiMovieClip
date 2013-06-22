@@ -1,29 +1,34 @@
 package
 {
-	import Loom2D.Loom2D;
-	import Loom2D.Animation.Juggler;
+	import loom.Application;
+
+	import loom2d.Loom2D;
+	import loom2d.animation.Juggler;
 
 	//import Loom2D.Display.BitmapFontLabel; // Gone after 1.0.1892
-	import Loom2D.Display.DisplayObject;
-	import Loom2D.Display.Image;    
-    import Loom2D.Display.Loom2DGame;
-	import Loom2D.Display.StageScaleMode;
-	import Loom2D.Display.MovieClip;
+	import loom2d.display.DisplayObject;
+	import loom2d.display.Image;    
+	import loom2d.display.StageScaleMode;
+	import loom2d.display.MovieClip;
 	
-	import Loom2D.Events.EnterFrameEvent;
-	import Loom2D.Events.Event;
-	import Loom2D.Events.KeyboardEvent;
-	import Loom2D.Events.TouchEvent;
+	import loom2d.events.EnterFrameEvent;
+	import loom2d.events.Event;
+	import loom2d.events.KeyboardEvent;
+	import loom2d.events.TouchEvent;
 	    
-    import Loom2D.Textures.Texture;
-    import Loom2D.Textures.TextureAtlas;
+	import loom2d.math.Point; 
+	
+	import loom2d.text.BitmapFont;
+	
+    import loom2d.textures.Texture;
+    import loom2d.textures.TextureAtlas;
 
-	import Loom2D.UI.Label;    
+	import loom2d.ui.Label;    
     
-    import System.XML.XMLNode;
+    import system.xml.XMLNode;
     
 
-    public class MultiMovieClipTest extends Loom2DGame
+    public class MultiMovieClipTest extends Application
     {
         override public function run():void
         {
@@ -119,15 +124,30 @@ package
 			stage.addChild(sizelabel);
 			*/
 			
-			
-			var actionlabel=new Label("assets/Curse-hd.fnt");
+			var fontFile="assets/Curse-hd.fnt";
+			var font = BitmapFont.load(fontFile);
+			var actionlabel=new Label(fontFile,new Point(stage.stageWidth,100));
+			actionlabel.y=stage.stageHeight/2;
 			stage.addChild(actionlabel);
 			
 			stage.addEventListener(EnterFrameEvent.ENTER_FRAME, function(e:Event):void {
-				//sizelabel.text=""+mmc.width+","+mmc.height;
+				var oldtext=actionlabel.text;
+				var text=""+mmc.action+"-"+mmc.direction;
+				if (text!=oldtext) {
+			/*
+				var dims=font.getStringDimensions(
+					text,
+					stage.stageWidth,
+					stage.stageHeight,
+					12);
+				*/	
+				//stage.removeChild(actionlabel);
+				//actionlabel=new Label(fontFile,dims);
 				actionlabel.text=""+mmc.action+"-"+mmc.direction;
-				actionlabel.x=stage.stageWidth/2;
-				actionlabel.y=stage.stageHeight/2;
+				//actionlabel.x=(stage.stageWidth-100)/2;
+				//actionlabel.y=stage.stageHeight/2;
+				//stage.addChild(actionlabel);
+				}
 			});
 			
 			

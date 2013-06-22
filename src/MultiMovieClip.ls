@@ -1,15 +1,14 @@
 package {
-	import Loom2D.Display.Image;    
-    import Loom2D.Display.Loom2DGame;
-	import Loom2D.Display.StageScaleMode;
-	import Loom2D.Display.MovieClip;
+	import loom2d.display.Image;    
+	import loom2d.display.StageScaleMode;
+	import loom2d.display.MovieClip;
 	
-	import Loom2D.Events.Event;
+	import loom2d.events.Event;
 	    
-    import Loom2D.Textures.Texture;
-    import Loom2D.Textures.TextureAtlas;
+    import loom2d.textures.Texture;
+    import loom2d.textures.TextureAtlas;
         
-    import System.XML.XMLNode;
+    import system.xml.XMLNode;
 	
 	public delegate MovieClipChange();
 	

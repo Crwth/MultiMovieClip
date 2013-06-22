@@ -9,7 +9,7 @@
 // =================================================================================================
 
 //package starling.display
-package Loom2D.Display
+package loom2d.display
 {
 	public class Sound { // TODO
 		public function play():void{}
@@ -19,11 +19,11 @@ package Loom2D.Display
     //import flash.media.Sound;
     
     //import starling.animation.IAnimatable;
-    import Loom2D.Animation.IAnimatable;
+    import loom2d.animation.IAnimatable;
     //import starling.events.Event;
-    import Loom2D.Events.Event;
+    import loom2d.events.Event;
     //import starling.textures.Texture;
-    import Loom2D.Textures.Texture;
+    import loom2d.textures.Texture;
     
     /** Dispatched whenever the movie has displayed its last frame. */
     //[Event(name="complete", type="starling.events.Event")]
